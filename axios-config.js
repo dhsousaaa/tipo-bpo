@@ -8,7 +8,7 @@ const https = require('https');
 module.exports = axios.create({
   
   // url base
-    baseURL: "https://" + process.env.LICENCA + ".superlogica.net/condor/atual/",
+    baseURL: "https://api.superlogica.net/v2/condor/",
 
   //60 segundos de timeout
   timeout: 60000,
