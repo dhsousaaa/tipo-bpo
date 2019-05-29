@@ -1,14 +1,7 @@
-const routes = require('./routers');
 const express = require('express')
 const app = express()
-require('dotenv').config()
+const cobranca = require('./cobranca')
 
-async function listaCobrancas() {
-    let teste = await routes.listaCobranca();
-    console.log(teste);
-}
-
-listaCobrancas();
-
+cobranca.cadastrarCobrancas()
 
 app.listen(9000)
