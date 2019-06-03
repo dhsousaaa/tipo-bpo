@@ -5,13 +5,12 @@ async function listarCobrancas(){
     console.log(cobrancas)
 }
 
-async function cadastrarCobrancas(){
-    return axios.cadastrarCobrancas().then(function(cobrancas){
+async function cadastrarCobrancas(valor, dataVencimento){
+    return axios.cadastrarCobrancas(valor, dataVencimento).then(function(cobrancas){
         console.log(cobrancas)
     }).catch(function(err){
         console.log(err)
     });
-    
 }
 
 module.exports = {

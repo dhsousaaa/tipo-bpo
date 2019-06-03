@@ -23,15 +23,15 @@ async function listarCobrancas(){
     });
 }
 
-async function cadastrarCobrancas(){
+async function cadastrarCobrancas(valor, dataVencimento){
 
     var data = {}
 
     data.ID_CONDOMINIO_COND = 2;
     data.ID_UNIDADE_UNI = 44;
-    data.DT_VENCIMENTO_RECB = '05/30/2019';
+    data.DT_VENCIMENTO_RECB = dataVencimento;
     data["RECEITA_APROPRIACAO[0][ST_CONTA_CONT]"] = 1.4;
-    data["RECEITA_APROPRIACAO[0][VL_VALOR_REC]"] = 10.00;
+    data["RECEITA_APROPRIACAO[0][VL_VALOR_REC]"] = valor;
     data.VALOR_TOTAL = 10;
     data.NUMERO_PERCELAS = 0;
     data.ALTERAR_ENCARGOS = 0;
