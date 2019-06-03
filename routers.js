@@ -1,5 +1,6 @@
 // Carregar variáveis de ambiente
-require('dotenv').config()
+require('dotenv').config();
+const qs = require('querystring');
 
 // Importar axios config
 const axios = require('./axios-config.js');
@@ -24,37 +25,33 @@ async function listarCobrancas(){
 
 async function cadastrarCobrancas(){
 
-    LET
+    var data = {}
+
+    data.ID_CONDOMINIO_COND = 2;
+    data.ID_UNIDADE_UNI = 44;
+    data.DT_VENCIMENTO_RECB = '05/30/2019';
+    data["RECEITA_APROPRIACAO[0][ST_CONTA_CONT]"] = 1.4;
+    data["RECEITA_APROPRIACAO[0][VL_VALOR_REC]"] = 10.00;
+    data.VALOR_TOTAL = 10;
+    data.NUMERO_PERCELAS = 0;
+    data.ALTERAR_ENCARGOS = 0;
+    data.NM_TXJUROS_COND = 2;
+    data.NM_TXMULTA_COND = 3;
+    data.NM_TXDESCONTO_COND = 0;
+    data.FL_TIPOCOB_COT = 0;
+    data.ID_CONTABANCO_CB = 38;
+    data.ID_FORMAPAGAMENTO_RECB = 0;
+    data.DT_COMPETENCIA = '05/30/2019';
+
     return axios({
         method: 'POST',
         url: urlCadastrarCobranca,
-        data: {
-            ID_CONDOMINIO_COND: 2,
-            ID_UNIDADE_UNI: 44,
-            DT_VENCIMENTO_RECB: '05/30/2019',
-            RECEITA_APROPRIACAO: 
-            [{
-                ID_RECEITA_REC: 22013,
-                ST_CONTA_CONT: 1.4,
-                VL_VALOR_REC: 10.00
-            }],
-            VALOR_TOTAL: 10.00,
-            NUMERO_PERCELAS: 0,
-            ALTERAR_ENCARGOS: 0,
-            NM_TXJUROS_COND: 2,
-            NM_TXMULTA_COND: 3,
-            NM_TXDESCONTO_COND: 0,
-            FL_TIPOCOB_COT: 0,
-            ID_CONTABANCO_CB: 38,
-            ID_FORMAPAGAMENTO_RECB: 0,
-            DT_COMPETENCIA: '05/30/2019'
-        },
+        data: qs.stringify(data),
         headers: {
             'access_token': process.env.ACESS_TOKEN_APP,
             'app_token': process.env.TOKEN_APP,
-            'Content-Type': 'application/json'
-        },
-        json: true
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
     });
 }
 
