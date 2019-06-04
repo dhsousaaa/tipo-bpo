@@ -41,7 +41,7 @@ async function cadastrarCobrancas(valor, dataVencimento){
     data.FL_TIPOCOB_COT = 0;
     data.ID_CONTABANCO_CB = 38;
     data.ID_FORMAPAGAMENTO_RECB = 0;
-    data.DT_COMPETENCIA = '05/30/2019';
+    data.DT_COMPETENCIA = dataVencimento;
 
     return axios({
         method: 'POST',

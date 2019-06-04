@@ -4,6 +4,9 @@ const cobranca = require('./cobrancas')
 
 
 
-app.get('/cobrancas/cadastrar', (req, res) => cobranca.cadastrarCobrancas(req.query.valor, req.query.dataVencimento))
+app.post('/cobrancas/cadastrar', (req, res) => { 
+    cobranca.cadastrarCobrancas(req.query.valor, req.query.dataVencimento)
+    return res
+})
 
-app.listen(9001)
+app.listen(9000)
