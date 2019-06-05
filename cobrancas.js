@@ -6,11 +6,8 @@ async function listarCobrancas(){
 }
 
 async function cadastrarCobrancas(valor, dataVencimento){
-    return axios.cadastrarCobrancas(valor, dataVencimento).then(function(cobrancas){
-        console.log(cobrancas)
-    }).catch(function(err){
-        console.log(err)
-    });
+    const result = await axios.cadastrarCobrancas(valor, dataVencimento);
+    return result
 }
 
 module.exports = {
